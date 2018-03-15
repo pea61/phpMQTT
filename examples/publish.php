@@ -2,10 +2,10 @@
 
 require("../phpMQTT.php");
 
-$server = "mqtt.example.com";     // change if necessary
-$port = 1883;                     // change if necessary
-$username = "";                   // set your username
-$password = "";                   // set your password
+$server = "m12.cloudmqtt.com";     // change if necessary
+$port = 10184;                     // change if necessary
+$username = "TEST";                   // set your username
+$password = "12345";                   // set your password
 $client_id = "phpMQTT-publisher"; // make sure this is unique for connecting to sever - you could use uniqid()
 
 $mqtt = new phpMQTT($server, $port, $client_id);
