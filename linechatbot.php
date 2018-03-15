@@ -5,9 +5,9 @@ use \LINE\LINEBot;
 
 require(“phpMQTT.php”);
 
-$mqtt = new phpMQTT(“www.yourmqttserver.com”, 1883, “phpMQTT Pub Example”); //เปลี่ยน www.yourmqttserver.com ไปที่ mqtt server ที่เราสมัครไว้นะครับ
+$mqtt = new phpMQTT(“m12.cloudmqtt.com”,10184, “phpMQTT Pub Example”); //เปลี่ยน www.yourmqttserver.com ไปที่ mqtt server ที่เราสมัครไว้นะครับ
 
-$token = “your line messaging api token”; //นำ token ที่มาจาก line developer account ของเรามาใส่ครับ
+$token = “IrN10smd9lGZGp0JtOOoBJpAvSvDPFVNnDbTdxVbnU2Xv9YNaABrfKI2LxXxRH59XxerqJx3otWj0OqohFtMLiwSJy6fEEYarDN9KVKol7CqHo1GzqPST1DJI4hvg04yIDQiNwa2M1UD8K4SRn4XawdB04t89/1O/w1cDnyilFU=”; //นำ token ที่มาจาก line developer account ของเรามาใส่ครับ
 
 $httpClient = new CurlHTTPClient($token);
 $bot = new LINEBot($httpClient, [‘channelSecret’ => $token]);
@@ -27,14 +27,14 @@ $text = “มีอะไรให้จ่าวิสรับใช้คร
 
 if (preg_match(“/เปิดไฟ/”, $text)) {     //หากในแชตที่ส่งมามีคำว่า เปิดทีวี ก็ให้ส่ง mqtt ไปแจ้ง server เราครับ
 if ($mqtt->connect()) {
-$mqtt->publish(“/ESP/REMOTE”,”TV”); // ตัวอย่างคำสั่งเปิดทีวีที่จะส่งไปยัง mqtt server
+$mqtt->publish(“/ESP/REMOTE”,”GET”); // ตัวอย่างคำสั่งเปิดทีวีที่จะส่งไปยัง mqtt server
 $mqtt->close();
 }
 $text = “เปิดไฟให้แล้วคร้าบบบบ”;
 }
 if (preg_match(“/ปิดทีวี/”, $text) and !preg_match(“/เปิดทีวี/”, $text)) {
 if ($mqtt->connect()) {
-$mqtt->publish(“/ESP/REMOTE”,”TV”);
+$mqtt->publish(“/ESP/REMOTE”,”GET”);
 $mqtt->close();
 }
 $text = “ปิดไฟให้แล้วนะครับ!!”;
