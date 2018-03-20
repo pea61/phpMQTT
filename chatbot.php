@@ -1,21 +1,21 @@
 [code] <?php
-require(“vendor/autoload.php”);
-use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use \LINE\LINEBot;
-
+//require(“vendor/autoload.php”);
+//use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
+//use \LINE\LINEBot;
+$strUrl = "https://api.line.me/v2/bot/message/reply";
 require(“phpMQTT.php”);
 
 $mqtt = new phpMQTT(“m12.cloudmqtt.com”, 10184, “phpMQTT Pub Example”); //เปลี่ยน www.yourmqttserver.com ไปที่ mqtt server ที่เราสมัครไว้นะครับ
 
 $token = “IrN10smd9lGZGp0JtOOoBJpAvSvDPFVNnDbTdxVbnU2Xv9YNaABrfKI2LxXxRH59XxerqJx3otWj0OqohFtMLiwSJy6fEEYarDN9KVKol7CqHo1GzqPST1DJI4hvg04yIDQiNwa2M1UD8K4SRn4XawdB04t89/1O/w1cDnyilFU=”; //นำ token ที่มาจาก line developer account ของเรามาใส่ครับ
 
-$httpClient = new CurlHTTPClient($token);
-$bot = new LINEBot($httpClient, [‘channelSecret’ => $token]);
+//$httpClient = new CurlHTTPClient($token);
+//$bot = new LINEBot($httpClient, [‘channelSecret’ => $token]);
 // webhook
-$jsonStr = file_get_contents(‘php:input’);
-$jsonObj = json_decode($jsonStr);
-print_r($jsonStr);
-foreach ($jsonObj->events as $event) {
+$content = file_get_contents('php://input');
+	$arrJson = json_decode($content, true);
+print_r(($content);
+foreach ($arrJson->events as $event) {
 if(‘message’ == $event->type){
 // debug
 //file_put_contents(“message.json”, json_encode($event));
