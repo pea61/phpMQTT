@@ -12,10 +12,10 @@ $token = “IrN10smd9lGZGp0JtOOoBJpAvSvDPFVNnDbTdxVbnU2Xv9YNaABrfKI2LxXxRH59Xxer
 //$httpClient = new CurlHTTPClient($token);
 //$bot = new LINEBot($httpClient, [‘channelSecret’ => $token]);
 // webhook
-$jsonStr = file_get_contents(‘php://input’);
-$jsonObj = json_decode($jsonStr);
-print_r($jsonStr);
-foreach ($jsonObj->events as $event) {
+$content = file_get_contents('php://input');
+	$arrJson = json_decode($content, true);
+print_r($content);
+foreach ($arrJson->events as $event) {
 if(‘message’ == $event->type){
 foreach ($arrJson->events as $event) {
 if(‘message’ == $event->type){
