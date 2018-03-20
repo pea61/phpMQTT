@@ -25,21 +25,21 @@ if(‘message’ == $event->type){
 $text = $event->message->text;
 
 if (preg_match(“/สวัสดี/”, $text)) {
-$text = “มีอะไรให้จ่าวิสรับใช้ครับ”;
+$text = “มีอะไรให้จ่ารับใช้ครับ”;
 }
-if (preg_match(“/เปิดทีวี/”, $text)) {     //หากในแชตที่ส่งมามีคำว่า เปิดทีวี ก็ให้ส่ง mqtt ไปแจ้ง server เราครับ
+if (preg_match(“/เปิดไฟ/”, $text)) {     //หากในแชตที่ส่งมามีคำว่า เปิดทีวี ก็ให้ส่ง mqtt ไปแจ้ง server เราครับ
 if ($mqtt->connect()) {
 $mqtt->publish(“/ESP/LED”,”GET”); // ตัวอย่างคำสั่งเปิดทีวีที่จะส่งไปยัง mqtt server
 $mqtt->close();
 }
-$text = “เปิดทีวีให้แล้วคร้าบบบบ”;
+$text = “เปิดไฟให้แล้วคร้าบบบบ”;
 }
-if (preg_match(“/ปิดทีวี/”, $text) and !preg_match(“/เปิดทีวี/”, $text)) {
+if (preg_match(“/ปิดไฟ/”, $text) and !preg_match(“/เปิดไฟ/”, $text)) {
 if ($mqtt->connect()) {
 $mqtt->publish(“/ESP/LED”,”GET”);
 $mqtt->close();
 }
-$text = “จ่าปิดทีวีให้แล้วนะครับ!!”;
+$text = “จ่าปิดไฟให้แล้วนะครับ!!”;
 }
 $response = $bot->replyText($event->replyToken, $text); // ส่งคำ reply กลับไปยัง line application
 
