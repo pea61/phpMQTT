@@ -11,7 +11,7 @@ $client_id = "xqzkunxqr"; // make sure this is unique for connecting to sever - 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("bluerhinos/phpMQTT/examples/publishtest", "Hello World! at " . date("r"), 0);
+	$mqtt->publish("pea61/phpMQTT/examples/publishtest", "Hello World! at " . date("r"), 0);
 	$mqtt->close();
 } else {
     echo "Time out!\n";
