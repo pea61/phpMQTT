@@ -11,7 +11,7 @@ Topic: pea61/phpMQTT/examples/publishtest
 	Hello World! at Fri, 13 Jan 2017 01:58:23 +0000
 
 Msg Recieved: Fri, 13 Jan 2017 01:58:35 +0000
-Topic: pea61/phpMQTT/examples/publishtest
+Topic: bluerhinos/phpMQTT/examples/publishtest
 
 	Hello World! at Fri, 13 Jan 2017 01:58:35 +0000
 
