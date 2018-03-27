@@ -4,7 +4,7 @@ Andrew Milsted | andrew@bluerhinos.co.uk | http://www.bluerhinos.co.uk | @bluerh
 A simple php class to connect/publish/subscribe to an MQTT broker
 
 Documentation: Coming Soon
-Source: https://github.com/pea61/phpMQTT
+Source: https://github.com/bluerhinos/phpMQTT
 
 To install via Composer
 -----------------------
